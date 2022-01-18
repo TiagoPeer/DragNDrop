@@ -10,13 +10,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function handleDrop(e) {
         e.stopPropagation();
 
-        if(this.innerHTML == e.dataTransfer.getData('text/html')){
-             dragSrcEl.innerHTML = "";
-        }else{
-             dragSrcEl.innerHTML = e.dataTransfer.getData('text/html');
-        this.innerHTML = e.dataTransfer.getData('text/html');
-            }
-       
+        if (this.innerHTML == e.dataTransfer.getData('text/html')) {
+            dragSrcEl.innerHTML = "";
+        } else if (this.classList.contains('dropable')) {
+            dragSrcEl.innerHTML = e.dataTransfer.getData('text/html');
+            this.innerHTML = e.dataTransfer.getData('text/html');
+        }
 
         return false;
     }
