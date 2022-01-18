@@ -42,13 +42,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         this.classList.remove('over');
     }
 
-    function handleBodyDrop(e) {
-        e.stopPropagation();
-        console.log(dragSrcEl);
-        dragSrcEl.innerHTML = "";
-        return false;
-    }
-
     let dragItems = document.querySelectorAll('.dragable');
     dragItems.forEach(function (item) {
         item.addEventListener('dragstart', handleDragStart);
