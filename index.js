@@ -10,8 +10,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function handleDrop(e) {
         e.stopPropagation();
 
-        dragSrcEl.innerHTML = e.dataTransfer.getData('text/html');
+        if(this.innerHTML == e.dataTransfer.getData('text/html')){
+             dragSrcEl.innerHTML = "";
+        }else{
+             dragSrcEl.innerHTML = e.dataTransfer.getData('text/html');
         this.innerHTML = e.dataTransfer.getData('text/html');
+            }
+       
 
         return false;
     }
